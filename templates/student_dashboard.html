@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+<div class="nav">Welcome {{ username }}</div>
+
+<div class="container">
+<div class="card">
+
+<form method="POST" enctype="multipart/form-data">
+
+<label>Upload Document</label>
+<input type="file" name="document" required>
+
+<label>Select Print Type</label>
+<select name="print_type" id="print_type" onchange="calculatePrice()" required>
+    <option value="bw">Black & White (₹5 per page)</option>
+    <option value="color">Color (₹10 per page)</option>
+</select>
+
+<label>Number of Pages</label>
+<input type="number" name="pages" id="pages" min="1" onchange="calculatePrice()" required>
+
+<label>Student Contact Number</label>
+<input type="text" name="contact" required>
+
+<h3>Total Price: ₹ <span id="total">0</span></h3>
+
+<hr>
+
+<h3>Scan & Pay</h3>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=AdminPayment" width="150">
+
+<label>Upload Payment Screenshot</label>
+<input type="file" name="payment" required>
+
+<br><br>
+
+<button type="submit">Submit Print Request</button>
+
+</form>
+</div>
+</div>
+</body>
+</html>

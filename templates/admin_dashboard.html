@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="nav">Admin Dashboard</div>
+
+<div class="container">
+
+{% for order in orders %}
+<div class="card">
+
+<h3>Token: {{ order[5] }}</h3>
+<p><b>Student:</b> {{ order[1] }}</p>
+<p><b>Contact:</b> {{ order[6] }}</p>
+<p><b>File:</b> {{ order[2] }}</p>
+<p><b>Print Type:</b> {{ order[3] }}</p>
+<p><b>Pages:</b> {{ order[4] }}</p>
+<p><b>Total Price:</b> ₹ {{ order[7] }}</p>
+<p><b>Status:</b> {{ order[8] }}</p>
+
+<p><b>Payment Screenshot:</b></p>
+<img src="/uploads/{{ order[9] }}" width="200">
+
+<form method="POST">
+    <input type="hidden" name="token" value="{{ order[5] }}">
+    <select name="status">
+        <option>Pending</option>
+        <option>Printing</option>
+        <option>Printed</option>
+    </select>
+    <button type="submit">Update Status</button>
+</form>
+
+</div>
+{% endfor %}
+
+</div>
+</body>
+</html>

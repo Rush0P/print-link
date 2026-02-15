@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="nav">Print Status</div>
+
+<div class="container">
+<div class="card">
+
+<h2>Your Token Number: {{ token }}</h2>
+
+<h3>Status: 
+    <span style="color:green;">{{ status }}</span>
+</h3>
+
+<a href="/">
+<button>Back To Home</button>
+</a>
+
+</div>
+</div>
+</body>
+</html>

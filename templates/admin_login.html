@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="nav">Admin Login</div>
+
+<div class="container">
+<div class="card">
+
+<form method="POST">
+<input type="text" name="username" placeholder="Admin Username" required>
+<input type="password" name="password" placeholder="Admin Password" required>
+<button type="submit">Login</button>
+</form>
+
+<p>Default Login:</p>
+<p>Username: admin</p>
+<p>Password: admin123</p>
+
+</div>
+</div>
+</body>
+</html>
